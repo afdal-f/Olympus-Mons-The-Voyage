@@ -21,6 +21,7 @@ public class RoverMovement : MonoBehaviour
     public Rigidbody roverRB;
     public Vector3 cameraDefaultPos;
     public float roverSpeed;
+    public float acceleration;
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class RoverMovement : MonoBehaviour
     void Start()
     {
         Debug.Log("ur a robot yeehee lol");
+        acceleration = roverRB.GetAccumulatedForce().magnitude;
     }
 
     // Update is called once per frame

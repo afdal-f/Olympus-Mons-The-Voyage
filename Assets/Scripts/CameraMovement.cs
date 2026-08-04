@@ -5,12 +5,13 @@ public class CameraMovement : MonoBehaviour
     private Camera mainCam;
     private RoverMovement rover;
     private float camReverseRate;
-    public Vector3 defaultPos;
+    public float accelZ;
+    public float defaultZ;
+    public float fov;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        defaultPos = transform.position;
         mainCam = Camera.main;
         rover = GetComponent<RoverMovement>();
     }
@@ -18,25 +19,18 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rover.roverSpeed >= 30 && rover.roverSpeed <= 50 && transform.position.z <= 30)
+        Debug.Log(rover.roverSpeed);
+        if (rover.roverSpeed > 40 && rover.roverSpeed <= 100)
         {
-            transform.Translate(new Vector3(0, 0, 1) * camReverseRate * Time.deltaTime);
+            mainCam.fieldOfView = rover.roverSpeed;
         }
-        else if (rover.roverSpeed >= 50 && rover.roverSpeed <= 70 && transform.position.z <= 35)
+        else if (rover.roverSpeed > 100)
         {
-            transform.Translate(new Vector3(0, 0, 1) * camReverseRate * Time.deltaTime);
+            mainCam.fieldOfView = 100.0f;
         }
-        else if (rover.roverSpeed >= 70 && rover.roverSpeed <= 100 && transform.position.z <= 40)
+        else if (rover.roverSpeed <= 40)
         {
-            transform.Translate(new Vector3(0, 0, 1) * camReverseRate * Time.deltaTime);
-        }
-        else if (rover.roverSpeed >= 100 && transform.position.z <= 45)
-        {
-            transform.Translate(new Vector3(0, 0, 1) * camReverseRate * Time.deltaTime);
-        }
-        else
-        {
-            transform.position = defaultPos;
+            mainCam.fieldOfView = 40;
         }
     }
 }
