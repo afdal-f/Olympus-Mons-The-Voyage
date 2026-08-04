@@ -47,7 +47,7 @@ public class RoverMovement : MonoBehaviour
     void Update()
     {
         roverSpeed = roverRB.linearVelocity.magnitude * (18 / 5);
-        Debug.Log(roverSpeed);
+        
         Vector2 input = controls.Player.Move.ReadValue<Vector2>();
         
         //Xinput is the turning input
