@@ -22,6 +22,7 @@ public class RoverMovement : MonoBehaviour
     public Vector3 cameraDefaultPos;
     public float roverSpeed;
     public float acceleration;
+    public Vector3 centerOfMass = new Vector3(2.8f, 0f, -5.8f);
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class RoverMovement : MonoBehaviour
     {
         Debug.Log("ur a robot yeehee lol");
         acceleration = roverRB.GetAccumulatedForce().magnitude;
+        roverRB.centerOfMass = centerOfMass;
     }
 
     // Update is called once per frame
@@ -59,15 +61,6 @@ public class RoverMovement : MonoBehaviour
         //brakeInput is for the handbrake
         brakeInput = controls.Player.Sprint.IsPressed();
         resetRotation = controls.Player.Jump.IsPressed();
-
-        ChangePositionOfWheels(wheel11m, wheel11);
-        ChangePositionOfWheels(wheel12m, wheel12);
-        ChangePositionOfWheels(wheel13m, wheel13);
-        ChangePositionOfWheels(wheel14m, wheel14);
-        ChangePositionOfWheels(wheel21m, wheel21);
-        ChangePositionOfWheels(wheel22m, wheel22);
-        ChangePositionOfWheels(wheel23m, wheel23);
-        ChangePositionOfWheels(wheel24m, wheel24);
     }
 
     private void FixedUpdate()
@@ -109,9 +102,5 @@ public class RoverMovement : MonoBehaviour
             transform.position = transform.position + resetOffset;
             transform.rotation = startRot;
         }
-    }
-    void ChangePositionOfWheels(GameObject obj, WheelCollider col)
-    {
-        obj.transform.position = col.transform.position;
     }
 }
