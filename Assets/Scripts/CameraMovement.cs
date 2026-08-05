@@ -10,6 +10,7 @@ public class CameraMovement : MonoBehaviour
     public float fov;
     public float speed;
     int x;
+    public LayerMask moontan;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,10 +19,19 @@ public class CameraMovement : MonoBehaviour
         rover = GetComponent<RoverMovement>();
     }
 
+    private void Update()
+    {
+        
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
-        Debug.Log(rover.roverSpeed);
+        
+        if (Physics.Raycast(mainCam.transform.position, -Vector3.forward, 1000.0f, moontan))
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime);
+        }
         if (rover.roverSpeed > 40 && rover.roverSpeed <= 100)
         {
             mainCam.fieldOfView = rover.roverSpeed;

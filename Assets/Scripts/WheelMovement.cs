@@ -18,8 +18,7 @@ public class WheelMovement : MonoBehaviour
     {
         col.GetWorldPose(out pos, out rot);
         mesh.transform.position = pos;
-        rot.eulerAngles = rot.eulerAngles + new Vector3(90, 0, 90);
-        mesh.transform.rotation = rot;
+        mesh.transform.rotation = rot * Quaternion.Euler(90, 0, 90);
     }
     private void Update()
     {

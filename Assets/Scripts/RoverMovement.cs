@@ -23,6 +23,8 @@ public class RoverMovement : MonoBehaviour
     public float roverSpeed;
     public float acceleration;
     public Vector3 centerOfMass = new Vector3(2.8f, 0f, -5.8f);
+    float currentSteer;
+    public float turnPower = 60.0f;
 
     private void Awake()
     {
@@ -73,8 +75,28 @@ public class RoverMovement : MonoBehaviour
         wheel22.motorTorque = -Yinput * power;
         wheel23.motorTorque = -Yinput * power;
         wheel24.motorTorque = -Yinput * power;
-        wheel14.steerAngle = turnAngle * Xinput;
-        wheel24.steerAngle = turnAngle * Xinput;
+        currentSteer = (wheel14.steerAngle + wheel24.steerAngle) / 2;
+        if(Xinput > 0)
+        {
+            wheel14.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Xinput * turnPower);
+            wheel24.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Xinput * turnPower);
+            Debug.Log("RIGHT");
+            currentSteer = (wheel14.steerAngle + wheel24.steerAngle) / 2;
+        }
+        else if(Xinput < 0)
+        {
+            wheel14.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
+            wheel24.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
+            Debug.Log("LEFT");
+            currentSteer = (wheel14.steerAngle + wheel24.steerAngle) / 2;
+        }
+        else if(Xinput == 0)
+        {
+            wheel14.steerAngle = Mathf.MoveTowards(currentSteer, 0.0f, turnPower);
+            wheel24.steerAngle = Mathf.MoveTowards(currentSteer, 0.0f, turnPower);
+            Debug.Log("IDLE");
+            currentSteer = (wheel14.steerAngle + wheel24.steerAngle) / 2;
+        }
         if (brakeInput)
         {
             wheel11.brakeTorque = brakePower;
@@ -99,6 +121,8 @@ public class RoverMovement : MonoBehaviour
         }
         if (resetRotation)
         {
+            roverRB.angularVelocity = Vector3.zero;
+            roverRB.linearVelocity = Vector3.zero;
             transform.position = transform.position + resetOffset;
             transform.rotation = startRot;
         }
