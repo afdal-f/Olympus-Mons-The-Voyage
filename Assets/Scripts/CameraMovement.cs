@@ -1,48 +1,42 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CameraMovement : MonoBehaviour
 {
     private Camera mainCam;
     private RoverMovement rover;
-    private float camReverseRate;
-    public float accelZ;
-    public float defaultZ;
-    public float fov;
-    public float speed;
-    int x;
     public LayerMask moontan;
+    public float fovIncreaseStart = 40.0f;
+    public float fovIncreaseLast = 140.0f;
+    public Vector3 camPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mainCam = Camera.main;
+        camPos = mainCam.transform.position;
         rover = GetComponent<RoverMovement>();
     }
 
     private void Update()
     {
-        
+        Debug.Log(rover.roverSpeed);
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        
-        if (Physics.Raycast(mainCam.transform.position, -Vector3.forward, 1000.0f, moontan))
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime);
-        }
-        if (rover.roverSpeed > 40 && rover.roverSpeed <= 100)
+        if (rover.roverSpeed > fovIncreaseStart && rover.roverSpeed <= fovIncreaseLast)
         {
             mainCam.fieldOfView = rover.roverSpeed;
         }
-        else if (rover.roverSpeed > 140)
+        else if (rover.roverSpeed > fovIncreaseLast)
         {
-            mainCam.fieldOfView = 100.0f;
+            mainCam.fieldOfView = fovIncreaseLast;
         }
-        else if (rover.roverSpeed <= 40)
+        else if (rover.roverSpeed <= fovIncreaseStart)
         {
-            mainCam.fieldOfView = 40;
+            mainCam.fieldOfView = fovIncreaseStart;
         }
     }
 }
