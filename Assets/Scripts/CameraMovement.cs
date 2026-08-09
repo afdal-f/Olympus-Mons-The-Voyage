@@ -9,6 +9,7 @@ public class CameraMovement : MonoBehaviour
     public float fovIncreaseStart = 40.0f;
     public float fovIncreaseLast = 140.0f;
     public Vector3 camPos;
+    public float camRecoilSpeed = 9.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,23 +21,23 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(rover.roverSpeed);
+        //Debug.Log(rover.roverSpeed);
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if (rover.roverSpeed > fovIncreaseStart && rover.roverSpeed <= fovIncreaseLast)
+        if (rover.cameraRecoil > fovIncreaseStart && rover.cameraRecoil <= fovIncreaseLast)
         {
-            mainCam.fieldOfView = rover.roverSpeed;
+            mainCam.fieldOfView = Mathf.MoveTowards(mainCam.fieldOfView, rover.cameraRecoil, camRecoilSpeed);
         }
-        else if (rover.roverSpeed > fovIncreaseLast)
+        else if (rover.cameraRecoil > fovIncreaseLast)
         {
-            mainCam.fieldOfView = fovIncreaseLast;
+            mainCam.fieldOfView = Mathf.MoveTowards(mainCam.fieldOfView, fovIncreaseLast, camRecoilSpeed);
         }
-        else if (rover.roverSpeed <= fovIncreaseStart)
+        else if (rover.cameraRecoil <= fovIncreaseStart)
         {
-            mainCam.fieldOfView = fovIncreaseStart;
+            mainCam.fieldOfView = Mathf.MoveTowards(mainCam.fieldOfView, fovIncreaseStart, camRecoilSpeed);
         }
     }
 }
