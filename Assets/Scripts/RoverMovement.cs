@@ -8,7 +8,7 @@ public class RoverMovement : MonoBehaviour
 {
     private RoverControls controls;
     public WheelCollider wheel11, wheel12, wheel13, wheel14, wheel21, wheel22, wheel23, wheel24;
-    public Rigidbody roverRB;
+    private Rigidbody roverRB;
     public float Xinput;
     public float Yinput;
     public float motorPower = 600.0f;
@@ -178,7 +178,6 @@ public class RoverMovement : MonoBehaviour
     void ResetRotation()
     {
         roverRB.angularVelocity = Vector3.zero;
-        roverRB.linearVelocity = Vector3.zero;
         transform.position = transform.position + resetOffset;
         transform.rotation = startRot;
     }
