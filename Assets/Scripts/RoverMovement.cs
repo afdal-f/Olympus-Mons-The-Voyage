@@ -177,6 +177,7 @@ public class RoverMovement : MonoBehaviour
     }
     void ResetRotation()
     {
+        roverRB.linearVelocity = Vector3.zero;
         roverRB.angularVelocity = Vector3.zero;
         transform.position = transform.position + resetOffset;
         transform.rotation = startRot;
