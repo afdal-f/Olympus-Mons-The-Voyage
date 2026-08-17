@@ -48,7 +48,6 @@ public class CheckPointDirectionFinder : MonoBehaviour
             Point(finalPoint);
             CheckPos(finalPoint, finalPoint);
         }
-        Debug.Log("Distance to next checkpoint is :" + distanceToCheck);
     }
 
     void Point(GameObject check)
@@ -78,8 +77,7 @@ public class CheckPointDirectionFinder : MonoBehaviour
         float fMaxZ = finalPoint.transform.position.z + bounds;
         if (transform.position.x <= fMaxX && transform.position.z <= fMaxZ && transform.position.x >= fMinX && transform.position.z >= fMinZ)
         {
-            Destroy(gameObject);
-            Aesthetic();
+            gameEnd = true;
         }
     }
 

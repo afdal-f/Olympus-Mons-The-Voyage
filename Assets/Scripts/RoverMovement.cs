@@ -139,14 +139,14 @@ public class RoverMovement : MonoBehaviour
         if (roverSpeed < speedMax)
         {
             wheel.motorTorque = -Yinput * power;
-            Debug.Log("motor torque: " + Mathf.Abs(wheel.motorTorque) + " | speed above 140 |" 
-                + " speed is: " + roverSpeed + " | brake torque is: " + wheel.brakeTorque + " | at acceleration: " + acceleration);
+            //Debug.Log("motor torque: " + Mathf.Abs(wheel.motorTorque) + " | speed above 140 |" 
+                //+ " speed is: " + roverSpeed + " | brake torque is: " + wheel.brakeTorque + " | at acceleration: " + acceleration);
         }
         else if (roverSpeed >= speedMax)
         {
             wheel.motorTorque = 0.0f;
-            Debug.Log("motor torque: " + Mathf.Abs(wheel.motorTorque) + " | speed above 140 |" 
-                + " speed is: " + roverSpeed + " | brake torque is: " + wheel.brakeTorque  + " | at acceleration: " + acceleration);
+            //Debug.Log("motor torque: " + Mathf.Abs(wheel.motorTorque) + " | speed above 140 |" 
+                //+ " speed is: " + roverSpeed + " | brake torque is: " + wheel.brakeTorque  + " | at acceleration: " + acceleration);
         }
     }
 
