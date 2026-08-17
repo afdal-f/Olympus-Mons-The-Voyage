@@ -82,7 +82,7 @@ public class RoverMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        cameraRecoil = roverSpeed;
+        cameraRecoil = roverSpeed/2;
         Gears();
         Acc(wheel11);
         Acc(wheel12);
