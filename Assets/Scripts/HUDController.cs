@@ -30,7 +30,7 @@ public class HUDController : MonoBehaviour
         nextCheckpoint = pointerScript.currentCheck;
         DistanceToNextCheck = pointerScript.distanceToCheck;
 
-        speed.text = Mathf.Round(speedVar) + " kmph";
+        speed.text = Mathf.Round(speedVar * 5/18) + " kmph";
         distance.text = "Distance: " + Mathf.Round(DistanceToNextCheck);
         checkpoint.text = "The next checkpoint is: " + nextCheckpoint.name;
     }
