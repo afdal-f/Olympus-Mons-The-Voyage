@@ -47,7 +47,6 @@ public class RoverDustController : MonoBehaviour
         for (int i = 0; i < dust.Length; i++) 
         {
             EmitParticles(dust[i], wheels[i]);
-            Debug.Log("Applied " + dust[i] + " on " + wheels[i]);
         }
     }
 
