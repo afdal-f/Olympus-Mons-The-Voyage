@@ -1,9 +1,11 @@
 using System.Collections;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class DustStorm : MonoBehaviour
 {
     public ParticleSystem dustStorm;
+    public ParticleSystem spawnedStorm;
     public GameObject rover;
     public float minX, minZ, maxX, maxZ;
     public float bounds = 1000;
@@ -11,6 +13,7 @@ public class DustStorm : MonoBehaviour
     public float stormLifetime = 500.0f;
     public Vector3 direction;
     public Vector3 spawnPos;
+    RaycastHit stormY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,10 +35,10 @@ public class DustStorm : MonoBehaviour
         maxX = rover.transform.position.x + bounds;
 
         spawnPos = new Vector3(Random.Range(minX, maxX), rover.transform.position.y, Random.Range(minZ, maxZ));
-        direction = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
+        direction = new Vector3(Random.Range(-1, 2), 0, Random.Range(-1, 2));
         Quaternion lookDirection = Quaternion.LookRotation(direction.normalized);
 
-        ParticleSystem spawnedStorm = Instantiate(dustStorm, spawnPos, lookDirection);
+        spawnedStorm = Instantiate(dustStorm, spawnPos, lookDirection);
 
         StartCoroutine(moveStorm(spawnedStorm, direction));
 
@@ -48,10 +51,15 @@ public class DustStorm : MonoBehaviour
 
     IEnumerator moveStorm(ParticleSystem storm, Vector3 direction)
     {
+        RaycastHit raycastHit;
         while (storm != null)
         {
+            Vector3 raycastStartPos = new Vector3(storm.transform.position.x, storm.transform.position.y + 1000.0f, storm.transform.position.z);
+            if (Physics.Raycast(raycastStartPos, Vector3.down, out raycastHit))
+            {
+                storm.transform.position = new Vector3(storm.transform.position.x, raycastHit.point.y, storm.transform.position.z);
+            }
             storm.transform.Translate(direction.normalized * Time.deltaTime * windSpeed);
-            Debug.Log(storm.transform.position);
             yield return null;
         }
     }
