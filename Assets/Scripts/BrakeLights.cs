@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class BrakeLights : MonoBehaviour
@@ -18,6 +19,10 @@ public class BrakeLights : MonoBehaviour
         controls.Player.Sprint.Enable();
     }
 
+    private void OnDisable()
+    {
+       controls.Player.Sprint.Disable();
+    }
     void Start()
     {
         

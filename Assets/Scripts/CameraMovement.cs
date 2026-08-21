@@ -1,8 +1,10 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class CameraMovement : MonoBehaviour
 {
+    
     private Camera mainCam;
     private RoverMovement rover;
     public LayerMask moontan;
@@ -21,7 +23,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(rover.roverSpeed);
+        
     }
 
     // Update is called once per frame

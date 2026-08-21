@@ -36,6 +36,12 @@ public class RoverDustController : MonoBehaviour
         control.Player.Sprint.Enable();
     }
 
+    private void OnDisable()
+    {
+        control.Player.Move.Disable();
+        control.Player.Sprint.Disable();
+    }
+
     void Start()
     {
 

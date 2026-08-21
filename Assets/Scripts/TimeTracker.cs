@@ -37,7 +37,7 @@ public class TimeTracker : MonoBehaviour
         yield return new WaitForSeconds(0.001f);
         if(pointerScript.gameEnd == true)
         {
-            timeOutput.text = "You took: " + timeSpent + "to reach Caldera! Go exploring" +
+            timeOutput.text = "You took: " + timeSpent + " seconds to reach Caldera! Go exploring" +
                 " if you want to, maybe try driving down the steep slope... If you can do it successfully without tumbling forward that is...";
             yield return new WaitForSeconds(7.0f);
             timeOutput.text = "";
