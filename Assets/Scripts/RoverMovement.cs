@@ -45,6 +45,12 @@ public class RoverMovement : MonoBehaviour
         controls.Player.Sprint.Enable();
         controls.Player.Jump.Enable();
     }
+    private void OnDisable()
+    {
+        controls.Player.Move.Disable();
+        controls.Player.Sprint.Disable();
+        controls.Player.Jump.Disable();
+    }
 
     void Start()
     {
