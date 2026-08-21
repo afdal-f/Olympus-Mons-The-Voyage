@@ -2,9 +2,11 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StormEffects : MonoBehaviour
 {
+    public TMP_Text stormWarning;
     ParticleSystem storm;
     public Vector3 stormPos;
     public Vector3 roverPos;
@@ -40,11 +42,13 @@ public class StormEffects : MonoBehaviour
         Debug.Log("minX: " + minX + " | maxX: " + maxX + " | minZ: " + minZ + " | maxZ: " + maxZ);
         if ((roverPos.x > minX) && (roverPos.z > minZ) && (roverPos.x < maxX) && (roverPos.z < maxZ))
         {
+            stormWarning.text = "WARNING: YOU ARE IN A STORM!";
             smolForceForWind = true;
             dustOverlay.color = new Color(dustOverlay.color.r, dustOverlay.color.g, dustOverlay.color.b, Mathf.MoveTowards(dustOverlay.color.a, 0.7f, dirtSwipeSpeed));
         }
         else
         {
+            stormWarning.text = "";
             smolForceForWind = false;
             dustOverlay.color = new Color(dustOverlay.color.r, dustOverlay.color.g, dustOverlay.color.b, Mathf.MoveTowards(dustOverlay.color.a, 0.0f, dirtSwipeSpeed));
         }
