@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5447713936171540167}
   - component: {fileID: 4009702423363215769}
   - component: {fileID: 991130598320866910}
+  - component: {fileID: -7744927734372583223}
   m_Layer: 0
   m_Name: Dust Strom
   m_TagString: Storm
@@ -4833,3 +4834,23 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-7744927734372583223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565114851019560790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb451fbcfd1ffc469e2caf9b66e7e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounds: 3000
+  rover: {fileID: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  lookDirection: {x: 0, y: 0, z: 0, w: 0}
+  minX: 0
+  minZ: 0
+  maxX: 0
+  maxZ: 0
