@@ -3,9 +3,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class StormEffects : MonoBehaviour
 {
+
     public TMP_Text stormWarning;
     ParticleSystem storm;
     public Vector3 stormPos;
@@ -61,4 +63,13 @@ public class StormEffects : MonoBehaviour
             roverRB.AddForce(stormScript.direction * windPowerMultiplier * stormScript.windSpeed, ForceMode.Force);
         }
     }
+
+    IEnumerator stormWarningMethod()
+    {        
+        stormWarning.text = "WARNING: YOU ARE IN A STORM!";
+        yield return new WaitForSeconds(0.5f);
+        stormWarning.text = "";
+        yield return new WaitForSeconds(0.5f);
+    }
 }
+
