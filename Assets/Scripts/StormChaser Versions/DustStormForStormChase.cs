@@ -18,16 +18,19 @@ public class DustStormForStormChase: MonoBehaviour
     }
     private void Update()
     {
-        StormMove();
         SetCorners();
         SetRotation();
         RaycastForY();
+        StormMove();
     }
 
     void SetRotation()
     {
         moveDirection = rover.transform.position - transform.position;
-        lookDirection = Quaternion.LookRotation(moveDirection.normalized);
+        moveDirection = new Vector3 (moveDirection.x, transform.position.y, moveDirection.z);
+        lookDirection.x = 0;
+        lookDirection.z = 0;
+        lookDirection.y = 0;
         transform.rotation = lookDirection;
     }
 
@@ -41,15 +44,15 @@ public class DustStormForStormChase: MonoBehaviour
 
     void RaycastForY()
     {
-        Vector3 raycastInit = new Vector3(transform.position.x, transform.position.y + 1000, transform.position.z);
-        if (Physics.Raycast(raycastInit, Vector3.down, out hit, 10000.0f))
+        Vector3 raycastInit = new Vector3(transform.position.x, transform.position.y + 10000, transform.position.z);
+        if (Physics.Raycast(raycastInit, Vector3.down, out hit, 60000.0f))
         {
             transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
         }
     }
     private void StormMove()
     {
-        transform.Translate(moveDirection.normalized * windSpeed * Time.deltaTime);
+        transform.Translate(moveDirection.normalized * windSpeed * Time.deltaTime, Space.World);
     }
 
 }
