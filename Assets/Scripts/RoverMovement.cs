@@ -158,6 +158,8 @@ public class RoverMovement : MonoBehaviour
     {
         wheel14.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Xinput * turnPower);
         wheel24.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Xinput * turnPower);
+        wheel11.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
+        wheel21.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
         currentSteer = (wheel14.steerAngle + wheel24.steerAngle) / 2;
     }
 
@@ -165,6 +167,8 @@ public class RoverMovement : MonoBehaviour
     {
         wheel14.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
         wheel24.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
+        wheel11.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Mathf.Abs(Xinput) * turnPower);
+        wheel21.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Mathf.Abs(Xinput) * turnPower);
         currentSteer = (wheel14.steerAngle + wheel24.steerAngle) / 2;
     }
 
