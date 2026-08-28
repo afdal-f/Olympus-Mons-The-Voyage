@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManagerScript : MonoBehaviour
@@ -11,8 +12,8 @@ public class MainMenuManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene("Credits");
     }
-    public void QuitGame()
+    public void Settings()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Settings");
     }
 }

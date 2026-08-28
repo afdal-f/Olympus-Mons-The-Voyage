@@ -28198,7 +28198,7 @@ MonoBehaviour:
   resetRotation: 0
   startRot: {x: 0, y: 0, z: 0, w: 0}
   resetOffset: {x: 0, y: 0.25, z: 0}
-  centerOfMass: {x: 2.8, y: -2, z: -5.8}
+  centerOfMass: {x: 2.8, y: -1, z: -5.8}
   minSteerAngle: 4
   speedMax: 350
   speedLimitStrength: 0
@@ -28308,7 +28308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361994279}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f092d53291c8994581dfb99fe9b1ee4, type: 3}
   m_Name: 
@@ -28350,7 +28350,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424379465}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
