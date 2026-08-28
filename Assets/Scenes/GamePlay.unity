@@ -15210,8 +15210,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 1.5
   m_SuspensionSpring:
-    spring: 3000
-    damper: 1500
+    spring: 10000
+    damper: 3000
     targetPosition: 0.5
   m_SuspensionDistance: 1.8
   m_ForceAppPointDistance: 0
@@ -27922,8 +27922,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 1.5
   m_SuspensionSpring:
-    spring: 3000
-    damper: 1500
+    spring: 10000
+    damper: 3000
     targetPosition: 0.5
   m_SuspensionDistance: 1.8
   m_ForceAppPointDistance: 0
@@ -33719,8 +33719,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 1.5
   m_SuspensionSpring:
-    spring: 3000
-    damper: 1500
+    spring: 10000
+    damper: 3000
     targetPosition: 0.5
   m_SuspensionDistance: 1.8
   m_ForceAppPointDistance: 0
@@ -39028,8 +39028,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 1.5
   m_SuspensionSpring:
-    spring: 3000
-    damper: 1500
+    spring: 10000
+    damper: 3000
     targetPosition: 0.5
   m_SuspensionDistance: 1.8
   m_ForceAppPointDistance: 0
@@ -39113,8 +39113,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 1.5
   m_SuspensionSpring:
-    spring: 3000
-    damper: 1500
+    spring: 10000
+    damper: 3000
     targetPosition: 0.5
   m_SuspensionDistance: 1.8
   m_ForceAppPointDistance: 0
@@ -44203,10 +44203,10 @@ MonoBehaviour:
   - {fileID: 7567588251991350329, guid: 14d2fb1eba58e944eb9426ea2c0dac60, type: 3}
   - {fileID: 6405713656206079335, guid: 5c11d80b09f57604493c9b454d3df6a9, type: 3}
   - {fileID: 6431695250600304554, guid: 233ccdb66c966274696f627b9b14029b, type: 3}
-  maxSmallRocks: 20
-  maxMediumRocks: 20000
+  maxSmallRocks: 2
+  maxMediumRocks: 2222
   maxLargeRocks: 6
-  spawnRadius: 5000
+  spawnRadius: 1000
   spawnInterval: 1.5
   rocksPerFrame: 2000
   oldMaxX: 0
@@ -44263,8 +44263,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 1.5
   m_SuspensionSpring:
-    spring: 3000
-    damper: 1500
+    spring: 10000
+    damper: 3000
     targetPosition: 0.5
   m_SuspensionDistance: 1.8
   m_ForceAppPointDistance: 0
@@ -44348,8 +44348,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 1.5
   m_SuspensionSpring:
-    spring: 3000
-    damper: 1500
+    spring: 10000
+    damper: 3000
     targetPosition: 0.5
   m_SuspensionDistance: 1.8
   m_ForceAppPointDistance: 0
@@ -45036,8 +45036,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 1.5
   m_SuspensionSpring:
-    spring: 3000
-    damper: 1500
+    spring: 10000
+    damper: 3000
     targetPosition: 0.5
   m_SuspensionDistance: 1.8
   m_ForceAppPointDistance: 0

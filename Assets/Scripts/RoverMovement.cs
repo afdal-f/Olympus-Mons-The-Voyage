@@ -156,26 +156,32 @@ public class RoverMovement : MonoBehaviour
 
     void SteerRight()
     {
-        wheel14.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Xinput * turnPower);
-        wheel24.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Xinput * turnPower);
-        wheel11.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
-        wheel21.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
+        float currentSteer2 = (wheel11.steerAngle + wheel21.steerAngle) / 2;
+        wheel14.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Mathf.Abs(Xinput) * turnPower);
+        wheel24.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Mathf.Abs(Xinput) * turnPower);
+        wheel11.steerAngle = Mathf.MoveTowards(currentSteer2, -turnAngle, Mathf.Abs(Xinput) * turnPower);
+        wheel21.steerAngle = Mathf.MoveTowards(currentSteer2, -turnAngle, Mathf.Abs(Xinput) * turnPower);
         currentSteer = (wheel14.steerAngle + wheel24.steerAngle) / 2;
+        
     }
 
     void SteerLeft()
     {
+        float currentSteer2 = (wheel11.steerAngle + wheel21.steerAngle) / 2;
         wheel14.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
         wheel24.steerAngle = Mathf.MoveTowards(currentSteer, -turnAngle, Mathf.Abs(Xinput) * turnPower);
-        wheel11.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Mathf.Abs(Xinput) * turnPower);
-        wheel21.steerAngle = Mathf.MoveTowards(currentSteer, turnAngle, Mathf.Abs(Xinput) * turnPower);
+        wheel11.steerAngle = Mathf.MoveTowards(currentSteer2, turnAngle, Mathf.Abs(Xinput) * turnPower);
+        wheel21.steerAngle = Mathf.MoveTowards(currentSteer2, turnAngle, Mathf.Abs(Xinput) * turnPower);
         currentSteer = (wheel14.steerAngle + wheel24.steerAngle) / 2;
     }
 
     void SteerIdle()
     {
+        float currentSteer2 = (wheel11.steerAngle + wheel21.steerAngle) / 2;
         wheel14.steerAngle = Mathf.MoveTowards(currentSteer, 0.0f, turnPower);
         wheel24.steerAngle = Mathf.MoveTowards(currentSteer, 0.0f, turnPower);
+        wheel11.steerAngle = Mathf.MoveTowards(currentSteer2, 0.0f, turnPower);
+        wheel21.steerAngle = Mathf.MoveTowards(currentSteer2, 0.0f, turnPower);
         currentSteer = (wheel14.steerAngle + wheel24.steerAngle) / 2;
     }
 
