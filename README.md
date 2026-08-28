@@ -21,6 +21,8 @@ Have you ever wondered **how another planet feels like**? What is driving on Mar
 
 ## Scientific Accuracy
 
+<img width="552" height="370" alt="image" src="https://github.com/user-attachments/assets/574b4fbe-099f-4a57-b21a-4dcdb3ea0a11" />
+
 * My goal was not to make the mountain look like Olympus Mons; it was to **get Olympus Mons itself into a playable simulator** by all means necessary.
 * The game **prioritizes** scientific accuracy; gravity is set to 3.71, the mountain uses real satellite data, etc.
 * One thing that may not be as scientifically accurate is probably the **landforms**, because I had to accept that adding specific Martian landforms was too time-intensive to study and build; the rock spawning itself was one of the biggest **headaches**.
